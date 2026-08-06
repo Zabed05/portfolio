@@ -16,12 +16,23 @@
     --white-color: #fff;
     --disabled-color: #fff3;
 }
+
+/* LIGHT MODE VARIABLE OVERRIDES */
+body.light-mode {
+    --bg-color: #f4f6f8;
+    --second-bg-color: #ffffff;
+    --white-color: #1e293b;
+    --disabled-color: rgba(0, 0, 0, 0.2);
+}
+
 html{
     font-size: 62%;
     scroll-behavior: smooth;
 }
 body{
     color: var(--white-color);
+    background: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 img{
     display:block;
@@ -39,12 +50,30 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: background-color 0.3s ease;
 }
 .logo{
     font-size: 3rem;
     color: var(--white-color);
     font-weight: 700;
 }
+
+/* THEME TOGGLE ICON STYLING */
+#theme-icon {
+    font-size: 2.8rem;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: auto;
+    margin-right: 2rem;
+    z-index: 101;
+}
+
+#theme-icon:hover {
+    color: var(--main-color);
+    transform: scale(1.15);
+}
+
 nav a{
     font-size: 2rem;
     color: var(--white-color);
@@ -59,12 +88,15 @@ nav a.active{
 #menu-icon{
     font-size: 4rem;
     display: none;
+    color: var(--white-color);
+    cursor: pointer;
 }
 
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
     background: var(--bg-color);
+    transition: background-color 0.3s ease;
 }
 
 /*================== HOME SECTION ====================*/
@@ -104,9 +136,8 @@ section {
     background: var(--main-color);
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: var(--bg-color);
+    color: #1f242d;
     font-weight: 500;
-    /* Add a transparent border initially so hovering doesn't cause a layout shift */
     border: 1px solid transparent; 
     cursor: pointer;
     text-decoration: none;
@@ -115,20 +146,19 @@ section {
 }
 
 .btn1:hover {
-    transform: translateY(-3px) scale(1.03); /* Subtle upward lift feels smoother than scale alone */
+    transform: translateY(-3px) scale(1.03);
     background: transparent;
     color: var(--main-color);
-    border-color: var(--main-color); /* Just swap the border color instead of declaring a new border */
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3); /* Optional soft glow matching your green accent */
+    border-color: var(--main-color);
+    box-shadow: 0 0 15px rgba(124, 240, 61, 0.3);
 }
 
 .socials-container {
   display: flex;
   align-items: center;
-  gap: 1.5rem;          /* Gives icons breathing room */
-  margin-top: 2.5rem;    /* Spacing below the buttons */
+  gap: 1.5rem;
+  margin-top: 3rem;
   margin-bottom: 0;
-  /* Avoid hardcoded left margins (e.g. 5rem) so it aligns naturally with the text above */
 }
 
 .icon {
@@ -185,7 +215,6 @@ section {
     display: block;
     width: 100%;
     object-fit: cover;
-    mix-blend-mode: lighten;
 }
 
 /*================== ABOUT SECTION ====================*/
@@ -209,6 +238,7 @@ section {
     border: .2rem solid var(--second-bg-color);
     border-radius: 1rem;
     transition: .5s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 .about-container .container-box:hover{
     border-color: var(--main-color);
@@ -219,8 +249,7 @@ section {
     margin: .5rem 0 2rem;
     transition: .5s;
 }
-.container-box:hover h2,
-.timeline-content:hover h2:not{
+.container-box:hover h2{
     color: var(--main-color);
 }
 .container-box li{
@@ -248,7 +277,7 @@ section {
     top: 25px;
     bottom: 25px;
     width: 3px;
-    background: linear-gradient(180deg, var(--main-color) 0%, rgba(0, 238, 255, 0.1) 100%);
+    background: linear-gradient(180deg, var(--main-color) 0%, rgba(124, 240, 61, 0.2) 100%);
     border-radius: 2px;
 }
 
@@ -278,33 +307,32 @@ section {
     justify-content: center;
     font-size: 2.2rem;
     color: var(--main-color);
-    box-shadow: 0 0 15px rgba(0, 238, 255, 0.3);
+    box-shadow: 0 0 15px rgba(124, 240, 61, 0.3);
     flex-shrink: 0;
     transition: 0.3s ease;
 }
 
 .timeline-item:hover .timeline-dot {
     background: var(--main-color);
-    color: var(--bg-color, #1f242d);
+    color: #1f242d;
     box-shadow: 0 0 25px var(--main-color);
 }
 
 /* Card Styling */
 .timeline-content {
     flex: 1;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
+    background: var(--second-bg-color);
+    border: 1px solid rgba(124, 240, 61, 0.15);
     border-radius: 1.6rem;
     padding: 2.5rem;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-item:hover .timeline-content {
     transform: translateX(8px);
     border-color: var(--main-color);
-    box-shadow: 0 10px 30px rgba(0, 238, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(124, 240, 61, 0.15);
 }
 
 /* Header inside card */
@@ -336,7 +364,7 @@ section {
 .institution h3 {
     font-size: 2rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--white-color);
     line-height: 1.3;
 }
 
@@ -350,9 +378,9 @@ section {
 .year-badge {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #e0e0e0;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+    background: rgba(124, 240, 61, 0.1);
+    border: 1px solid var(--main-color);
     padding: 0.6rem 1.4rem;
     border-radius: 3rem;
     display: inline-flex;
@@ -369,8 +397,8 @@ section {
 }
 
 .stat-card {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-color);
+    border: 1px solid rgba(124, 240, 61, 0.2);
     padding: 1rem 1.8rem;
     border-radius: 1rem;
     display: flex;
@@ -378,13 +406,14 @@ section {
 }
 
 .stat-card.highlight {
-    background: linear-gradient(135deg, rgba(0, 238, 255, 0.12), rgba(0, 238, 255, 0.02));
-    border-color: rgba(0, 238, 255, 0.3);
+    background: linear-gradient(135deg, rgba(124, 240, 61, 0.15), rgba(124, 240, 61, 0.02));
+    border-color: var(--main-color);
 }
 
 .stat-label {
     font-size: 1.1rem;
-    color: #aaa;
+    color: var(--white-color);
+    opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -403,13 +432,13 @@ section {
     gap: 0.8rem;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    border-top: 1px dashed rgba(124, 240, 61, 0.2);
 }
 
 .course-chips span {
     font-size: 1.2rem;
-    color: #ccc;
-    background: rgba(255, 255, 255, 0.05);
+    color: var(--white-color);
+    background: var(--bg-color);
     padding: 0.4rem 1rem;
     border-radius: 0.6rem;
     display: inline-flex;
@@ -555,7 +584,9 @@ section {
 .project-box .navigation .arrow-right{
     margin-left: 1.5rem;
 }
-/*CONTACT SECTION*/
+
+/*================== CONTACT SECTION ====================*/
+
 .contact-container{
     display: grid;
     grid-template-columns: 1fr 1.3fr;
@@ -598,6 +629,7 @@ section {
     padding: 2.5rem 3.5rem 3.5rem;
     border-radius: 1rem;
     text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 .contact-box .heading{
     font-size: 3.5rem;
@@ -630,7 +662,7 @@ section {
     cursor: pointer;
 }
 .contact-box .socials-media a i{
-     display: inline-flex;
+    display: inline-flex;
     background: var(--second-bg-color);
     color: var(--white-color);
     font-size: 3rem;
@@ -654,7 +686,6 @@ section {
     section{
         padding: 10rem 4% 2rem;
     }
-    
 }
 @media screen and (max-width: 810px){
     .contact-box .field-box{
@@ -680,46 +711,14 @@ section {
     .contact-box h2{
         font-size: 3.5rem;
     }
-    .education-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    .education-container .container-box {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-        padding: 2rem 1.5rem;
-    }
-    .timeline-logo {
-        display: none;
-    }
-    .timeline-content h2 {
-        font-size: 2.3rem;
-    }
-    .timeline-content p {
-        font-size: 1.9rem;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    .timeline-content ul {
-        padding-left: 1.5rem;
-        margin: 0;
-    }
-    .timeline-content li {
-        font-size: 1.8rem;
-        list-style: none;
-        position: relative;
-        padding-left: 2.3rem;
-    }
-    .timeline-content li i {
-        position: absolute;
-        left: 0;
-        top: 3px;
-    }
 }
 @media screen and (max-width: 768px){
     #menu-icon{
         display: block;
+    }
+    #theme-icon {
+        margin-left: auto;
+        margin-right: 1.5rem;
     }
     nav{
         position: absolute;
@@ -777,12 +776,11 @@ section {
 }
 @media screen and (max-width: 400px){
     .home-detail,
-    .container-box h2
-    {
+    .container-box h2 {
         text-align: center;
     }
     .home-detail .socials-container{
-        margin-left: 12rem;
+        justify-content: center;
     }
     .home-detail .btn-container{
         flex-direction: column;
@@ -794,12 +792,14 @@ section {
     }
 }
 
+/* FOOTER STYLING */
 .footer {
-  background-color: #111;
-  color: #eee;
+  background-color: var(--second-bg-color);
+  color: var(--white-color);
   padding: 25px 20px 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2.2rem;
+  transition: background-color 0.3s ease;
 }
 .footer-container {
   display: flex;
@@ -811,14 +811,17 @@ section {
 }
 .footer h3, .footer h4 {
   margin-bottom: 6px;
+  color: var(--white-color);
 }
 .footer p, .footer a {
-  color: #ccc;
+  color: var(--white-color);
   font-size: 15.5px;
   text-decoration: none;
+  opacity: 0.85;
 }
 .footer a:hover {
-  color: #fff;
+  color: var(--main-color);
+  opacity: 1;
 }
 .footer-links ul {
   list-style: none;
@@ -830,18 +833,19 @@ section {
 .social-icons a {
   font-size: 25px;
   margin-right: 12px;
-  color: #ccc;
+  color: var(--white-color);
   transition: color 0.3s;
 }
 .social-icons a:hover {
-  color: #1da1f2; 
+  color: var(--main-color); 
 }
 .footer-bottom {
   text-align: center;
   margin-top: 15px;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--disabled-color);
   padding-top: 15px;
   font-size: 13px;
+  color: var(--white-color);
 }
 
 @media (max-width: 768px) {
