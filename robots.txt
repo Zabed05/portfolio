@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zabed-portfolio.netlify.app/sitemap.xml
