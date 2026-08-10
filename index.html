@@ -97,29 +97,34 @@
     
     <main>
         <section id="home" class="home active">
-            <div class="home-detail">
-                <h1>Zabed Khan</h1>
-                <h2>I'm a 
-                    <span id="element"></span>
-                </h2>
-                <p>Aspiring Software Engineer with a passion for modern web development <br>and a strong foundation in Computer Science.</p>
-                <div class="btn-container">
-                    <a href="files/Zabed_Khan_Resume.pdf" target="_blank" class="btn1">View Resume</a>
-                    <a href="#contact" class="btn1">Contact Me</a>
-                </div>
-                <div class="socials-container">
-                    <img src="assets/linkedin.png" alt="My Linkedin Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/zabed-khan'">
-                    <img src="assets/github.png" alt="My GitHub Profile" class="icon" onclick="location.href='https://github.com/Zabed05'">
+        <div class="home-detail">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Available for opportunities</span>
+            </div>
+
+            <h1>Zabed Khan</h1>
+            <h2>I'm a 
+                <span id="element"></span>
+            </h2>
+            <p>Computer Science student building Java backends & AI models. <br>Passionate about DSA and scalable systems.</p>
+            <div class="btn-container">
+                <a href="files/Zabed_Khan_Resume.pdf" target="_blank" class="btn1">View Resume</a>
+                <a href="#contact" class="btn2">Contact Me</a>
+            </div>
+            <div class="socials-container">
+                <img src="assets/linkedin.png" alt="My Linkedin Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/zabed-khan'">
+                <img src="assets/github.png" alt="My GitHub Profile" class="icon" onclick="location.href='https://github.com/Zabed05'">
+            </div>
+        </div>
+        <div class="home-img">
+            <div class="img-box">
+                <div class="img-item">
+                    <img src="assets/zakpic.png" alt="">
                 </div>
             </div>
-            <div class="home-img">
-                <div class="img-box">
-                    <div class="img-item">
-                        <img src="assets/zakpic.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
         <section id="about" class="about">
             <h2 class="heading">About <span>Me</span></h2>
@@ -374,7 +379,7 @@
   <div class="footer-container">
     <div class="footer-about">
       <h3>Zabed Khan</h3>
-      <p>Web Developer • Designer </p>
+      <p>Developer • Learner</p>
     </div>
 
     <div class="footer-links">
@@ -404,10 +409,14 @@
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
     var typed = new Typed('#element', {
-      strings: ['Java Developer', 'DSA Learner'],
-      loop: true,
-      typeSpeed: 50,
-      backSpeed: 40,
+    strings: [
+        'Java Developer',
+        'DSA Enthusiast'
+    ],
+    typeSpeed: 60,
+    backSpeed: 40,
+    backDelay: 1500,
+    loop: true
 });
 </script>
   <script src="script.js"></script>
