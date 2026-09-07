@@ -1,24 +1,28 @@
-# Personal Portfolio
+# 🌐 Personal Portfolio
 
-This is my personal portfolio website where I showcase my projects, skills, and contact information.
+Welcome to my personal portfolio website! This project showcases my skills, projects, and journey as a developer.
 
-## 🔗 Live Demo
+## 🚀 Live Demo
 
-[https://zabed-portfolio.netlify.app/]
+🔗 **Portfolio:** [zabed-portfolio.netlify.app](https://zabed-portfolio.netlify.app/)
 
-## 🚀 Features
+## ✨ Features
 
-* Simple and clean design
-* Projects showcase
-* About me section
-* Contact section
+* 🎨 Clean and responsive design
+* 👨‍💻 About Me section
+* 🛠️ Skills showcase
+* 📂 Projects showcase
+* 📱 Fully responsive layout
+* 📬 Contact section
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-* HTML
-* CSS
-* JavaScript
+* **HTML5**
+* **CSS3**
+* **JavaScript**
 
-## 📬 Contact
+## 📬 Connect With Me
 
-Feel free to reach out to me!
+Feel free to connect with me for collaboration, opportunities, or discussions related to technology and software development.
+
+⭐ If you like this project, consider giving it a star!
