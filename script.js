@@ -14,30 +14,50 @@ const activePage = () => {
 };
 
 navLinks.forEach((link, idx) => {
-    link.addEventListener('click', () => {
-        if (!link.classList.contains('active')) {
-            activePage();
-            link.classList.add('active');
+    link.addEventListener('click', (e) => {
+        // Prevent #about, #projects, etc. from appearing in URL
+        e.preventDefault();
 
-            setTimeout(() => {
-                if (sections[idx]) sections[idx].classList.add('active');
-            }, 10);
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        activePage();
+        link.classList.add('active');
+
+        if (targetSection) {
+            targetSection.classList.add('active');
+
+            // Smooth scroll to section
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
 
-if (logoLink) {
-    logoLink.addEventListener('click', () => {
-        if (navLinks[0] && !navLinks[0].classList.contains('active')) {
-            activePage();
-            navLinks[0].classList.add('active');
 
-            setTimeout(() => {
-                if (sections[0]) sections[0].classList.add('active');
-            }, 10);
+if (logoLink) {
+    logoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        activePage();
+
+        if (navLinks[0]) {
+            navLinks[0].classList.add('active');
+        }
+
+        if (sections[0]) {
+            sections[0].classList.add('active');
+
+            sections[0].scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 }
+
 
 // MENU ICON CONTROL (MOBILE NAV TOGGLE)
 if (menuIcon && navbar) {
@@ -47,9 +67,7 @@ if (menuIcon && navbar) {
     });
 }
 
-// ===================================
 // DARK / LIGHT MODE TOGGLE CONTROLLER
-// ===================================
 const themeIcon = document.querySelector('#theme-icon');
 
 if (themeIcon) {
@@ -149,7 +167,7 @@ window.addEventListener("scroll", () => {
 
 // SMOOTH RESET TO HOME ON PAGE LOAD
 window.addEventListener("load", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);
 });
 
 // FOOTER YEAR SETUP
