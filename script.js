@@ -13,8 +13,8 @@ const activePage = () => {
     if (navbar) navbar.classList.remove('active');
 };
 
-navLinks.forEach((link, idx) => {
-    link.addEventListener('click', (e) => {
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
         // Prevent #about, #projects, etc. from appearing in URL
         e.preventDefault();
 
@@ -36,7 +36,6 @@ navLinks.forEach((link, idx) => {
     });
 });
 
-
 if (logoLink) {
     logoLink.addEventListener('click', (e) => {
         e.preventDefault();
@@ -57,7 +56,6 @@ if (logoLink) {
         }
     });
 }
-
 
 // MENU ICON CONTROL (MOBILE NAV TOGGLE)
 if (menuIcon && navbar) {
@@ -103,75 +101,136 @@ if (themeIcon) {
 }
 
 // PROJECT SECTION (SLIDER CONTROLLER)
-const arrowRight = document.querySelector('.project-box .navigation .arrow-right');
-const arrowLeft = document.querySelector('.project-box .navigation .arrow-left');
+const projectImages = document.querySelectorAll('.project-image');
+const projectInfo = document.querySelectorAll('.project-info');
+const projectArrowRight = document.querySelector('.project-arrow-right');
+const projectArrowLeft = document.querySelector('.project-arrow-left');
+const projectDots = document.querySelectorAll('.project-dots .dot');
+const projectCounter = document.querySelector('.project-counter');
+const projectTags = document.querySelector('.project-tags');
 
-let index = 0;
-const activeProject = () => {
-    const imgSlide = document.querySelector('.project .img-slide');
-    const projectDetails = document.querySelectorAll('.project-details');
+const projectTechnologies = [
+    ['Python', 'Streamlit', 'Gemini API', 'MySQL'],
+    ['HTML5', 'CSS3', 'JavaScript'],
+    ['HTML5', 'CSS3', 'JavaScript']
+];
 
-    if (imgSlide) {
-        imgSlide.style.transform = `translateX(calc(${index * -100}% - ${index * 2}rem))`;
+let projectIndex = 0;
+
+const updateProjectTags = () => {
+    if (!projectTags) return;
+
+    projectTags.innerHTML = '';
+
+    (projectTechnologies[projectIndex] || []).forEach(technology => {
+        const tag = document.createElement('span');
+        tag.textContent = technology;
+        projectTags.appendChild(tag);
+    });
+};
+
+const updateProject = () => {
+    projectImages.forEach((image, index) => {
+        image.classList.toggle('active', index === projectIndex);
+    });
+
+    projectInfo.forEach((info, index) => {
+        info.classList.toggle('active', index === projectIndex);
+    });
+
+    projectDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === projectIndex);
+    });
+
+    if (projectCounter) {
+        const current = String(projectIndex + 1).padStart(2, '0');
+        const total = String(projectImages.length).padStart(2, '0');
+
+        projectCounter.textContent = `PROJECT ${current} / ${total}`;
     }
 
-    projectDetails.forEach(details => details.classList.remove('active'));
-    if (projectDetails[index]) {
-        projectDetails[index].classList.add('active');
+    updateProjectTags();
+
+    projectArrowLeft?.classList.toggle(
+        'disabled',
+        projectIndex === 0
+    );
+
+    projectArrowRight?.classList.toggle(
+        'disabled',
+        projectIndex === projectImages.length - 1
+    );
+};
+
+const nextProject = () => {
+    if (projectIndex < projectImages.length - 1) {
+        projectIndex++;
+        updateProject();
     }
 };
 
-if (arrowRight && arrowLeft) {
-    arrowRight.addEventListener('click', () => {
-        if (index < 1) {
-            index++;
-            arrowLeft.classList.remove('disabled');
-        } else {
-            index = 2;
-            arrowRight.classList.add('disabled');
-        }
-        activeProject();
-    });
+const previousProject = () => {
+    if (projectIndex > 0) {
+        projectIndex--;
+        updateProject();
+    }
+};
 
-    arrowLeft.addEventListener('click', () => {
-        if (index > 1) {
-            index--;
-            arrowRight.classList.remove('disabled');
-        } else {
-            index = 0;
-            arrowLeft.classList.add('disabled');
-        }
-        activeProject();
+projectArrowRight?.addEventListener('click', nextProject);
+projectArrowLeft?.addEventListener('click', previousProject);
+
+projectDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        projectIndex = index;
+        updateProject();
     });
+});
+
+// PROJECT KEYBOARD NAVIGATION
+document.addEventListener('keydown', event => {
+    const projectsSection = document.getElementById('projects');
+
+    if (!projectsSection) return;
+
+    if (event.key === 'ArrowRight') {
+        nextProject();
+    } else if (event.key === 'ArrowLeft') {
+        previousProject();
+    }
+});
+
+if (projectImages.length > 0 && projectInfo.length > 0) {
+    updateProject();
 }
 
-// SCROLL HIGH-LIGHTING FOR NAV LINKS
-window.addEventListener("scroll", () => {
-    let currentPos = window.scrollY;
+// SCROLL NAVIGATION
+window.addEventListener('scroll', () => {
+    const currentPos = window.scrollY;
 
-    sections.forEach((sec) => {
-        let offsetTop = sec.offsetTop - 150;
-        let offsetBottom = offsetTop + sec.offsetHeight;
-        let id = sec.getAttribute("id");
+    sections.forEach(section => {
+        const offsetTop = section.offsetTop - 150;
+        const offsetBottom = offsetTop + section.offsetHeight;
+        const id = section.getAttribute('id');
 
         if (currentPos >= offsetTop && currentPos < offsetBottom) {
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + id) {
-                    link.classList.add("active");
-                }
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === `#${id}`
+                );
             });
         }
     });
 });
 
-// SMOOTH RESET TO HOME ON PAGE LOAD
-window.addEventListener("load", () => {
+// RESET HOME ON LOAD
+window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
-// FOOTER YEAR SETUP
-const yearEl = document.getElementById("year");
+// FOOTER YEAR
+const yearEl = document.getElementById('year');
+
 if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
 }

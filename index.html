@@ -97,35 +97,36 @@
     
     <main>
         <section id="home" class="home active">
-        <div class="home-detail">
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>Available for opportunities</span>
-            </div>
+            <div class="home-detail">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Available for opportunities</span>
+                </div>
 
-            <h1>Zabed Khan</h1>
-            <h2>I'm a 
-                <span id="element"></span>
-            </h2>
-            <p>Computer Science student building Java backends & AI models. <br>Passionate about DSA and scalable systems.</p>
-            <div class="btn-container">
-                <a href="files/Zabed_Khan_Resume.pdf" target="_blank" class="btn1">View Resume</a>
-                <a href="#contact" class="btn2">Contact Me</a>
-            </div>
-            <div class="socials-container">
-                <img src="assets/linkedin.png" alt="My Linkedin Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/zabed-khan'">
-                <img src="assets/github.png" alt="My GitHub Profile" class="icon" onclick="location.href='https://github.com/Zabed05'">
-            </div>
-        </div>
-        <div class="home-img">
-            <div class="img-box">
-                <div class="img-item">
-                    <img src="assets/zakpic.png" alt="">
+                <h1>Zabed Khan</h1>
+                <h2>I'm a 
+                    <span id="element"></span>
+                </h2>
+                <p>Computer Science student building Java backends & AI models. <br>Passionate about DSA and scalable systems.</p>
+                <div class="btn-container">
+                    <a href="files/Zabed_Khan_Resume.pdf" target="_blank" class="btn1">View Resume</a>
+                    <a href="#contact" class="btn2">Contact Me</a>
+                </div>
+                <div class="socials-container">
+                    <img src="assets/linkedin.png" alt="My Linkedin Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/zabed-khan'">
+                    <img src="assets/github.png" alt="My GitHub Profile" class="icon" onclick="location.href='https://github.com/Zabed05'">
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="home-img">
+                <div class="img-box">
+                    <div class="img-item">
+                        <img src="assets/zakpic.png" alt="">
+                    </div>
+                </div>
+            </div>
 
+        </section>
+    
         <section id="about" class="about">
             <h2 class="heading">About <span>Me</span></h2>
             <div class="about-container">
@@ -156,7 +157,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="education" class="education">
             <h2 class="heading"><i class='bx bx-education'></i> My <span>Educational</span> Journey</h2>
 
@@ -254,78 +255,213 @@
 
             </div>
         </section>
-
+        
         <section id="projects" class="projects">
             <h2 class="heading">Latest <span>Project</span></h2>
-            <div class="projects-container">
-                <div class="project-box">
-                    <div class="project-details active">
-                        <p class="numb">01</p>
-                        <h3>AI Personal Knowledge Assistant</h3>
-                        <p>
-                        Gyanibaba is an AI-powered Personal Knowledge Assistant that allows users to upload PDF documents and interact with them using natural language. It delivers context-aware answers and maintains chat history for a smooth knowledge retrieval experience.
-                        </p>
-                        <div class="tech">
-                            <p>Python, Streamlit, Gemini API, MySQL, AI, Generative AI</p>
+
+            <!-- PROJECT SHOWCASE -->
+            <div class="projects-showcase">
+
+                <!-- LEFT: PROJECT IMAGE -->
+                <div class="project-visual">
+
+                    <div class="project-image-wrapper">
+
+                        <div class="project-images">
+
+                            <!-- Project 01 -->
+                            <div class="project-image active">
+                                <img src="assets/gyanibaba.png" alt="Gyanibaba AI Personal Knowledge Assistant">
+                            </div>
+
+                            <!-- Project 02 -->
+                            <div class="project-image">
+                                <img src="assets/rock-paper-scissors.png" alt="Rock Paper Scissors Game">
+                            </div>
+
+                            <!-- Project 03 -->
+                            <div class="project-image">
+                                <img src="assets/cms1.jpg" alt="Canteen Management System">
+                            </div>
+
                         </div>
-                        <div class="live-github">
-                            <a href="https://gyanibaba-ai.streamlit.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Live Demo</span></a>
-                            <a href="https://github.com/Zabed05/ai-personal-knowledge-assistant"><i class="fa-brands fa-github"></i><span>Github Repository</span></a>
-                        </div>
+
+                        <!-- LEFT / RIGHT IMAGE CONTROLS -->
+                        <button class="project-arrow project-arrow-left disabled">
+                            <i class="bx bx-chevron-left"></i>
+                        </button>
+
+                        <button class="project-arrow project-arrow-right">
+                            <i class="bx bx-chevron-right"></i>
+                        </button>
+
                     </div>
-                    <div class="project-details">
-                        <p class="numb">02</p>
-                        <h3>Project 2</h3>
-                        <p>
-                        A simple Rock, Paper, Scissors game made with HTML, CSS, and JavaScript. 
-                        You play against the computer, see your score instantly, and enjoy a clean, colorful design.
-                        </p>
-                        <div class="tech">
-                            <p>HTML5, CSS3, JS</p>
-                        </div>
-                        <div class="live-github">
-                            <a href="https://zabed05.github.io/Rock-Paper-Scissors-Game/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Live Demo</span></a>
-                            <a href="https://github.com/Zabed05/Rock-Paper-Scissors-Game"><i class="fa-brands fa-github"></i><span>Github Repository</span></a>
-                        </div>
+
+                    <!-- TECHNOLOGY TAGS -->
+                    <div class="project-tags">
+
+                        <span>Python</span>
+                        <span>Streamlit</span>
+                        <span>Gemini API</span>
+                        <span>MySQL</span>
+
                     </div>
-                    <div class="project-details">
-                        <p class="numb">03</p>
-                        <h3>Project 3</h3>
-                        <p>
-                        A simple Canteen Management System Website using HTML, CSS, and JavaScript. It lets admins manage items, customers place orders, and support staff assist users — all in a clean and responsive interface.
-                        </p>
-                        <div class="tech">
-                            <p>HTML5, CSS3, JS</p>
-                        </div>
-                        <div class="live-github">
-                            <a href="https://zabed05.github.io/Canteen-Management-system/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Live Demo</span></a>
-                            <a href="https://github.com/Zabed05/Canteen-Management-system"><i class="fa-brands fa-github"></i><span>Github Repository</span></a>
-                        </div>
+
+                    <!-- SLIDER DOTS -->
+                    <div class="project-dots">
+
+                        <button class="dot active"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+
                     </div>
+
                 </div>
-                <div class="project-box">
-                    <div class="project">
-                        <div class="img-slide">
-                            <div class="img-item">
-                                <img src="assets/gyanibaba.png" alt="Gyanibaba">
-                            </div>
-                            <div class="img-item">
-                                <img src="assets/rock-paper-scissors.png" alt="">
-                            </div>
-                            <div class="img-item">
-                                <img src="assets/cms1.jpg" alt="">
-                            </div>
+
+                <!-- RIGHT: PROJECT INFORMATION -->
+                <div class="project-content">
+
+                    <!-- PROJECT COUNTER -->
+                    <div class="project-meta">
+                        <span class="project-counter">PROJECT 01 / 03</span>
+                        <span class="project-line"></span>
+                    </div>
+
+
+                    <!-- PROJECT 01 -->
+                    <div class="project-info active">
+
+                        <h3>AI Personal Knowledge Assistant</h3>
+
+                        <p>
+                            Gyanibaba is an AI-powered Personal Knowledge Assistant
+                            that allows users to upload PDF documents and interact
+                            with them using natural language. It delivers
+                            context-aware answers and maintains chat history for
+                            a smooth knowledge retrieval experience.
+                        </p>
+
+                        <div class="project-buttons">
+
+                            <a
+                                href="https://gyanibaba-ai.streamlit.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Live Demo</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Zabed05/ai-personal-knowledge-assistant"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Source Code</span>
+                                <i class="fa-brands fa-github"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="navigation">
-                        <button class="arrow-left disabled"><i class='bx bx-chevron-left'></i></button>
-                        <button class="arrow-right"><i class='bx bxs-chevron-right'></i></button>
+
+                    <!-- PROJECT 02 -->
+                    <div class="project-info">
+
+                        <h3>Rock Paper Scissors</h3>
+
+                        <p>
+                            A simple Rock, Paper, Scissors game made with HTML,
+                            CSS, and JavaScript. You play against the computer,
+                            see your score instantly, and enjoy a clean,
+                            colorful design.
+                        </p>
+
+                        <div class="project-buttons">
+
+                            <a
+                                href="https://zabed05.github.io/Rock-Paper-Scissors-Game/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Live Demo</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Zabed05/Rock-Paper-Scissors-Game"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Source Code</span>
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROJECT 03 -->
+                    <div class="project-info">
+
+                        <h3>Canteen Management System</h3>
+
+                        <p>
+                            A simple Canteen Management System website using
+                            HTML, CSS, and JavaScript. It lets admins manage
+                            items, customers place orders, and support staff
+                            assist users through a clean and responsive interface.
+                        </p>
+
+                        <div class="project-buttons">
+
+                            <a
+                                href="https://zabed05.github.io/Canteen-Management-system/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Live Demo</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Zabed05/Canteen-Management-system"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-btn"
+                            >
+                                <span>Source Code</span>
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </section>
 
+            <!-- VIEW MORE -->
+            <div class="projects-footer">
+
+                <a
+                    href="https://github.com/Zabed05"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more-btn"
+                >
+                    <span>View More on</span>
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+            </div>
+
+        </section>
+        
         <section id="contact" class="contact">
             <div class="contact-container">
                 <div class="contact-box">
