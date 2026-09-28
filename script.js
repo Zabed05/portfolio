@@ -110,6 +110,7 @@ const projectCounter = document.querySelector('.project-counter');
 const projectTags = document.querySelector('.project-tags');
 
 const projectTechnologies = [
+    ['Java', 'AndroidStudio', 'Firebase'],
     ['Python', 'Streamlit', 'Gemini API', 'MySQL'],
     ['HTML5', 'CSS3', 'JavaScript'],
     ['HTML5', 'CSS3', 'JavaScript']
